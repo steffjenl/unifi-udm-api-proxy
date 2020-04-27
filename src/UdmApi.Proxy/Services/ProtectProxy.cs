@@ -32,7 +32,7 @@ namespace UdmApi.Proxy.Services
             originalRequest.Path.StartsWithSegments("/api", out var remaining);
             var builder = new UriBuilder(_udmHost)
             {
-                Path = "/proxy/protect/api" + remaining,
+                Path = "/proxy/network/api" + remaining,
                 Query = originalRequest.QueryString.ToString()
             };
 

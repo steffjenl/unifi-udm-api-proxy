@@ -27,9 +27,7 @@ namespace UdmApi.Proxy
             services.AddHealthChecks();
 
             services.AddTransient<ProtectLoginProxy>();
-            services.AddTransient<ProtectAccessKeyProxy>();
             services.AddTransient<ProtectProxy>();
-            services.AddTransient<ProtectCameraProxy>();
 
             services.AddSingleton<IProxyHttpClientFactory, ProxyHttpClientFactory>();
             services.AddSingleton<ISsoSessionCache, DatabaseSsoSessionCache>();
@@ -52,9 +50,7 @@ namespace UdmApi.Proxy
             app.UseHealthChecks("/healthcheck");
 
             app.AddServiceProxy<ProtectLoginProxy>();
-            app.AddServiceProxy<ProtectAccessKeyProxy>();
             app.AddServiceProxy<ProtectProxy>();
-            app.AddServiceProxy<ProtectCameraProxy>();
 
             app.UseMiddleware<FallbackMiddleware>();
 
